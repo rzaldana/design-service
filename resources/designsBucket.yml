@@ -1,0 +1,20 @@
+designsBucket:
+  Type: AWS::S3::Bucket
+  Properties: 
+    BucketName: ${self:custom.designsBucket.name}
+
+designsBucketPolicy:
+  Type: AWS::S3::BucketPolicy
+  Properties:
+    Bucket: !Ref designsBucket
+    PolicyDocument:
+      Statement:
+        - Sid: PublicRead
+          Effect: Allow
+          Principal: '*'
+          Action:
+            - s3:GetObject
+            - s3:ListBucket
+          Resource:
+            - arn:aws:s3:::${self:custom.designsBucket.name}
+            - arn:aws:s3:::${self:custom.designsBucket.name}/*

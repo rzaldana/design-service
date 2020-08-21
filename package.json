@@ -1,0 +1,16 @@
+{
+  "name": "design-service",
+  "version": "1.0.0",
+  "description": "A headless CMS for the Generative Design section of my portfolio site",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raul Zaldana Calles",
+  "license": "ISC",
+  "dependencies": {
+    "http-errors": "^1.8.0",
+    "serverless-bundle": "^3.0.0",
+    "serverless-pseudo-parameters": "^2.5.0"
+  }
+}

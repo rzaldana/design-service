@@ -1,0 +1,10 @@
+# I won't be accessing the Bucket using Lambda functions so I don't really need
+# an IAM policy for now but I'm leaving the file and the commented out policy
+# below in case that changes
+ 
+ #designsBucketIAM:
+ # Effect: Allow
+ # Action: 
+ #   - s3:PutObject
+ #   - s3:DeleteObject
+ # Resource: arn:aws:s3:::${self:custom.designsBucket.name}/*

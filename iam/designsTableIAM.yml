@@ -1,0 +1,6 @@
+designsTableIAM:
+  Effect: Allow
+  Action:
+    - dynamodb:Scan
+  Resource:
+    - arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/designsTable
