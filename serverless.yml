@@ -13,6 +13,8 @@ provider:
   region: ca-central-1
   iamRoleStatements:
     - ${file(iam/designsTableIAM.yml):designsTableIAM}
+  environment:
+    AUCTIONS_TABLE_NAME: ${self:custom.designsTable.name}
   
 resources:
   Resources:
@@ -29,6 +31,17 @@ functions:
           method: GET
           path: /designs
 
+  getContent:
+    handler: src/getContent.handler
+    events:
+      - http:
+          method: GET
+          path: /design/{id}
+
 custom:
   designsBucket:
     name: designs-bucket-#{AWS::AccountId}-${self:provider.stage}
+  designsTable:
+    name: !Ref designsTable
+    arn: !GetAtt designsTable.Arn
+

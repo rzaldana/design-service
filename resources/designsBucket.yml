@@ -2,6 +2,13 @@ designsBucket:
   Type: AWS::S3::Bucket
   Properties: 
     BucketName: ${self:custom.designsBucket.name}
+    CorsConfiguration:
+          CorsRules:
+            - AllowedMethods:
+                - GET
+                - HEAD
+              AllowedOrigins:
+                - "*"
 
 designsBucketPolicy:
   Type: AWS::S3::BucketPolicy
